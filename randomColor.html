@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Random Color generator</title>
+	<meta charset="utf-8">
+	<style type="text/css">
+		body{
+			text-align: center;
+		}
+		button{
+		    font-size: 1.5rem;
+		    margin: 25px;
+		    background-color: purple;
+		    border: none;
+		    color: white;
+		    width: 100px;
+		    height: 50px;
+		    border-radius: 25px;
+		    /*box-shadow: 1em;*/
+		    cursor: pointer;
+		}
+		span {
+			display: block;
+			padding: 1rem;
+			font-size: 1rem;
+			font-weight: normal;
+			font-family: monospace;
+		}
+	</style>
+</head>
+<body>
+	<button type="button">Change</button>
+	<span id="color"></span>
+	<script type="text/javascript">
+		let button = document.querySelector('button');
+		button.addEventListener('click', getColor);
+		function getColor(){
+    		function col(){
+        		let hex = random(255).toString(16);
+        		//always return 2 values, even if a 0 is apended
+        		return ('0' + String(hex)).substr(-2);
+    		}
+    		let colour =  '#' + col() + col() + col();
+    		 document.body.style.backgroundColor = colour;
+    		 color.innerHTML = colour;
+		}
+		function random(number){
+    		let tempVal = Math.floor(Math.random()*number);
+    		return tempVal;
+		}
+	</script>
+</body>
+</html>
