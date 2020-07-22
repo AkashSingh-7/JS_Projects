@@ -73,9 +73,24 @@
     audio.play();
   }
 
+  function getColor(){
+    		function col(){
+        		let hex = random(255).toString(16);
+        		//always return 2 values, even if a 0 is apended
+        		return ('0' + String(hex)).substr(-2);
+    		}
+    		let colour =  '#' + col() + col() + col();
+    		 document.body.style.backgroundColor = colour;
+		}
+		function random(number){
+    		let tempVal = Math.floor(Math.random()*number);
+    		return tempVal;
+		}
+
   const keys = Array.from(document.querySelectorAll('.key'));
   keys.forEach(key => key.addEventListener('transitionend', removeTransition));
   window.addEventListener('keydown', playSound);
+  window.addEventListener('keydown', getColor);
 </script>
 
 
